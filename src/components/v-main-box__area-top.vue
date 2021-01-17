@@ -30,7 +30,18 @@
 
 <script>
     export default {
-        name: "v-main-box__area-top"
+        name: "v-main-box__area-top",
+        props:{
+            movies_data:{
+                type: Array,
+                default(){
+                    return []
+                }
+            }
+        },
+        methods:{
+
+        }
     }
 </script>
 
