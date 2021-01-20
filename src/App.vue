@@ -30,4 +30,7 @@ export default {
     padding: 0;
     background-color: #363232;
   }
+  a{
+    text-decoration: none;
+  }
 </style>

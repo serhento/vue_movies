@@ -6,7 +6,10 @@
         <div class="v-main-box__area-bottom-right">
             <div class="v-main-box__area-bottom-right-info">
                 <div class="movie">
-                    <h2 class="movie-title">{{movies_data.title}}</h2>
+                    <router-link :to="{name: 'movie', params: {movie_item_data: movies_data, id: movies_data.id}}">
+                        <h2 @click="movieId" class="movie-title">{{movies_data.title}}</h2>
+                    </router-link>
+<!--                    <h2 @click="movieId" class="movie-title">{{movies_data.title}}</h2>-->
                     <div v-if="movies_data.collapse.duration" class="movie-duration">
                         <p class="movie-duration-length">{{movies_data.collapse.duration.join(', ')}}</p>
                         <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,6 +39,11 @@
                 default(){
                     return {}
                 }
+            }
+        },
+        methods:{
+            movieId(){
+                this.$emit('movieId',this.movies_data.id);
             }
         }
     }

@@ -7,7 +7,9 @@
                 v-for="movie in MOVIES"
                 :key="movie.id"
                 :movies_data="movie"
+                @movieId="movieId"
             />
+
         </div>
     </div>
 </template>
@@ -31,7 +33,10 @@
         methods:{
             ...mapActions([
                 'GET_PRODUCTS_FROM_API'
-            ])
+            ]),
+            movieId(id){
+                console.log(id)
+            }
         },
         computed:{
             ...mapGetters([
