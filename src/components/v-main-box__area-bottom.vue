@@ -6,7 +6,7 @@
         <div class="v-main-box__area-bottom-right">
             <div class="v-main-box__area-bottom-right-info">
                 <div class="movie">
-                    <router-link :to="{name: 'movie', params: {movie_item_data: movies_data, id: movies_data.id}}">
+                    <router-link :to="{name: 'movie', params: {id: movies_data.id}}">
                         <h2 @click="movieId" class="movie-title">{{movies_data.title}}</h2>
                     </router-link>
 <!--                    <h2 @click="movieId" class="movie-title">{{movies_data.title}}</h2>-->

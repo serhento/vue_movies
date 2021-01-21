@@ -3,12 +3,14 @@
         <div class="v-main-box__area">
             <vMainBoxAreaTop />
             <vPreloader :loading="hidePreload" />
-            <vMainBoxAreaBottom
-                v-for="movie in MOVIES"
-                :key="movie.id"
-                :movies_data="movie"
-                @movieId="movieId"
-            />
+            <div v-if="!hidePreload">
+                <vMainBoxAreaBottom
+                        v-for="movie in MOVIES"
+                        :key="movie.id"
+                        :movies_data="movie"
+                        @movieId="movieId"
+                />
+            </div>
 
         </div>
     </div>
@@ -43,11 +45,21 @@
                 "MOVIES"
             ])
         },
+        watch: {
+            '$route.params.id'() {
+                this.hidePreload=true;
+                this.GET_PRODUCTS_FROM_API()
+                    .then((res)=> {
+                        if (res.data){
+                            this.hidePreload = false
+                        }
+                    })
+            }
+        },
         mounted(){
-            this.GET_PRODUCTS_FROM_API(46101)
+            this.GET_PRODUCTS_FROM_API()
                 .then((res)=> {
                     if (res.data){
-                        console.log('Data arrived');
                         this.hidePreload = false
                     }
                 })
