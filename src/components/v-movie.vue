@@ -8,14 +8,31 @@
         </router-link>
 
 
-        <vMainBoxAreaBottom :movies_data="movie_item_data"/>
+        <vMainBoxAreaBottom :movies_data="MOVIE"/>
     </div>
 </template>
 
 <script>
     import vMainBoxAreaBottom from './v-main-box__area-bottom'
+    import {mapActions, mapGetters} from 'vuex';
+    //import axios from 'axios'
     export default {
         name: "v-movie",
+        data(){
+            return{
+                movie: null
+            }
+        },
+        methods:{
+            ...mapActions([
+                'GET_MOVIE_FROM_API'
+            ])
+        },
+        computed:{
+            ...mapGetters([
+                "MOVIE"
+            ])
+        },
         components:{
             vMainBoxAreaBottom
         },
@@ -27,6 +44,15 @@
                 }
             },
             id:{}
+        },
+        mounted(){
+            this.GET_MOVIE_FROM_API(this.id)
+                .then((res)=> {
+                    if (res.data){
+                        console.log('Movie arrived');
+                        //this.hidePreload = false
+                    }
+                })
         }
     }
 </script>

@@ -41,18 +41,13 @@
         computed:{
             ...mapGetters([
                 "MOVIES"
-            ]),
-
-            // filterByYear(){
-            //
-            // }
+            ])
         },
         mounted(){
-            this.GET_PRODUCTS_FROM_API()
+            this.GET_PRODUCTS_FROM_API(46101)
                 .then((res)=> {
                     if (res.data){
                         console.log('Data arrived');
-                        console.log();
                         this.hidePreload = false
                     }
                 })
