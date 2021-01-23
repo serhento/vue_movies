@@ -12,7 +12,6 @@
 
 <script>
     import vHeader from "./v-header";
-    // import vMainBox from "./v-main-box";
     export default {
         name: "v-main-wrapper",
         components:{

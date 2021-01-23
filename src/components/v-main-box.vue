@@ -1,7 +1,7 @@
 <template>
     <div class="v-main-box">
         <div class="v-main-box__area">
-            <vMainBoxAreaTop />
+            <vMainBoxAreaTop :movies_data="MOVIES" />
             <vPreloader :loading="hidePreload" />
             <div v-if="!hidePreload">
                 <vMainBoxAreaBottom

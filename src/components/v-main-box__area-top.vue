@@ -4,7 +4,7 @@
         <div class="v-main-box__area-top-sort">
             <div class="v-main-box__area-top-sort-item">
                 <div class="v-main-box__area-top-sort-item-checkbox">
-                    <input id="check1" type="checkbox">
+                    <input id="check1" type="radio" v-model="checked" value="title" @change="filterByTitle()">
                     <label for="check1">
                         <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.33342 9.16649L0.166748 4.99982L1.34175 3.82482L4.33342 6.80815L10.6584 0.483154L11.8334 1.66649L4.33342 9.16649Z" fill="white"/>
@@ -15,7 +15,7 @@
             </div>
             <div class="v-main-box__area-top-sort-item">
                 <div class="v-main-box__area-top-sort-item-checkbox">
-                    <input id="check2" type="checkbox">
+                    <input id="check2" type="radio" v-model="checked" value="year" @change="filterByYear()">
                     <label for="check2">
                         <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.33342 9.16649L0.166748 4.99982L1.34175 3.82482L4.33342 6.80815L10.6584 0.483154L11.8334 1.66649L4.33342 9.16649Z" fill="white"/>
@@ -25,12 +25,17 @@
                 <span>Отсортировать по году</span>
             </div>
         </div>
+        <vPreloader/>
     </div>
 </template>
 
 <script>
+    import vPreloader from './v-preloader'
     export default {
         name: "v-main-box__area-top",
+        components:{
+            vPreloader
+        },
         props:{
             movies_data:{
                 type: Array,
@@ -39,8 +44,39 @@
                 }
             }
         },
-        methods:{
+        data(){
+            return{
+                newArray:[],
+                checked: false,
+            }
+        },
+        computed:{
+            filterByYear(){
+                // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+                return this.movies_data.sort((a,b)=>{
+                    if (this.checked) {
+                        return a.year - b.year
+                    } else {
+                        return b.year - a.year
+                    }
 
+                });
+            },
+            filterByTitle(){
+                // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+                return this.movies_data.sort((a, b) => a.title > b.title);
+            }
+        },
+        watch: {
+            '$route.params.id'() {
+                this.hidePreload=true;
+                this.GET_PRODUCTS_FROM_API()
+                    .then((res)=> {
+                        if (res.data){
+                            this.hidePreload = false
+                        }
+                    })
+            }
         }
     }
 </script>
