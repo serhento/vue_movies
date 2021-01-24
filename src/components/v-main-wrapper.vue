@@ -1,7 +1,6 @@
 <template>
     <div class="v-main-wrapper">
         <v-header/>
-<!--        <v-main-box/>-->
         <keep-alive>
             <router-view>
 
@@ -21,5 +20,7 @@
 </script>
 
 <style lang="scss">
-
+.v-main-wrapper{
+    width: auto;
+}
 </style>

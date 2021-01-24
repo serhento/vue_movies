@@ -26,7 +26,6 @@
                 <div v-if="movies_data.description" class="description">{{movies_data.description}}</div>
             </div>
         </div>
-        <vPreloader/>
     </div>
 </template>
 
@@ -59,8 +58,6 @@
         display: flex;
         margin-top: 24px;
         width: 1400px;
-        height: auto;
-        min-height: 168px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
         &:hover{

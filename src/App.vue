@@ -22,10 +22,7 @@ export default {
       url("./fonts/Roboto-Medium.ttf");
   }
   body{
-    font-family: "Roboto";
-    position: absolute;
-    width: 1920px;
-    height: 100vh;
+    font-family: "Roboto",sans-serif;
     margin: 0;
     padding: 0;
     background-color: #363232;

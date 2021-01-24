@@ -25,17 +25,12 @@
                 <span>Отсортировать по году</span>
             </div>
         </div>
-        <vPreloader/>
     </div>
 </template>
 
 <script>
-    import vPreloader from './v-preloader'
     export default {
         name: "v-main-box__area-top",
-        components:{
-            vPreloader
-        },
         props:{
             movies_data:{
                 type: Array,
@@ -64,18 +59,16 @@
             },
             filterByTitle(){
                 // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-                return this.movies_data.sort((a, b) => a.title > b.title);
+                return this.movies_data.sort((a,b)=>{
+                    if(a.title < b.title) return -1;
+                    if(a.title > b.title) return 1;
+                    return 0;
+                })
             }
         },
         watch: {
             '$route.params.id'() {
-                this.hidePreload=true;
-                this.GET_PRODUCTS_FROM_API()
-                    .then((res)=> {
-                        if (res.data){
-                            this.hidePreload = false
-                        }
-                    })
+                this.checked = false;
             }
         }
     }
@@ -102,11 +95,11 @@
 
             &-item{
                 display: flex;
+                align-items: center;
 
                 span{
-                    font-family: Roboto;
                     font-style: normal;
-                    font-weight: normal;
+                    font-weight: 400;
                     font-size: 16px;
                     line-height: 16px;
                     color: #C4C4C4;

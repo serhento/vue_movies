@@ -69,14 +69,12 @@
 
 <style lang="scss">
     .v-main-box{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
         display: flex;
         justify-content: center;
 
         &__area{
             width: 1400px;
-            height: 100vh;
         }
     }
 </style>
