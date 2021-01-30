@@ -76,9 +76,9 @@
 
 <style lang="scss">
     .v-main-box__area-top{
-        max-width: 100%;
         border-bottom: 1px solid #c4c4c4;
         margin-bottom: 40px;
+        max-width: 100%;
 
         h3{
             margin-bottom: 18.5px;
