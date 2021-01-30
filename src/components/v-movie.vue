@@ -76,11 +76,13 @@
 
 <style lang="scss">
 .v-movie{
+    max-width: 1400px;
+    padding: 0 1rem;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin: 40px auto 0 auto;
 
     &__hiden{
         width: 1400px;
@@ -97,7 +99,7 @@
     }
 
     &__link{
-        width: 1400px;
+        width: 100%;
         display: flex;
         justify-content: left;
         align-items: center;
@@ -121,6 +123,7 @@
     }
 
     .v-main-box__area-bottom{
+        width: 100%;
         &:hover{
             top: 0;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
