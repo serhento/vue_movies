@@ -13,7 +13,7 @@
 <style lang="scss">
     .v-header{
         width: 100%;
-        height: 100px;
+        max-height: 100px;
         background: rgba(250, 40, 40, 0.98);
         box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.28);
         display: flex;

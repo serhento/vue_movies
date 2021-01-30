@@ -74,7 +74,7 @@
         justify-content: center;
 
         &__area{
-            width: 1400px;
+            max-width: 1400px;
         }
     }
 </style>

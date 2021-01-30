@@ -21,6 +21,6 @@
 
 <style lang="scss">
 .v-main-wrapper{
-    width: auto;
+    max-width: 1920px;
 }
 </style>

@@ -10,12 +10,12 @@ let router = new Router({
     mode: 'history',
     routes:[
         {
-            path: '/',
+            path: '/vue_movies',
             name: 'main',
             component: vMainBox
         },
         {
-            path: '/:id',
+            path: '/vue_movies/:id',
             name: 'movie',
             component: vMovie,
             props: true

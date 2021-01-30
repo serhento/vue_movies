@@ -57,7 +57,7 @@
     .v-main-box__area-bottom{
         display: flex;
         margin-top: 24px;
-        width: 1400px;
+        max-width: 100%;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
         &:hover{
@@ -71,19 +71,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 168px;
+            width: 12%;
             background-color: #c4c4c4;
 
             img{
-                width: 112px;
-                height: 168px;
+                overflow: hidden;
+                max-height: 168px;
             }
         }
 
         &-right{
 
             height: auto;
-            width: 1232px;
+            width: 88%;
             background: #4D4747;
             display: inline;
 
@@ -100,7 +100,7 @@
                         justify-content: center;
                         align-items: center;
                         width: 184px;
-                        min-height: 30px;
+                        height: 30px;
                         right: -24px;
                         position: relative;
                         clip-path: polygon(4% 0, 0 100%, 100% 100%, 100% 100%, 100% 0);
